@@ -1,0 +1,12 @@
+include ':module_upgrade'
+include ':module_doctor'
+include ':module_report'
+include ':module_measure'
+include ':module_main'
+include ':module_login'
+include ':module_mine'
+include ':module_common'
+include ':module_base'
+include ':module_device'
+include ':app'
+rootProject.name = "XpHealth"

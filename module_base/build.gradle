@@ -1,0 +1,86 @@
+import com.lepucare.xphealth.build.*
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+        testInstrumentationRunner AndroidX.AndroidJUnitRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    resourcePrefix "base_"
+}
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    api AndroidX.CoreKtx
+    api AndroidX.AppCompat
+    api AndroidX.ConstraintLayout
+    api AndroidX.ActivityKtx
+    api AndroidX.FragmentKtx
+    api AndroidX.MultiDex
+
+    api Android.Material
+
+    api Kotlin.Kotlin
+    api Kotlin.CoroutinesCore
+    api Kotlin.CoroutinesAndroid
+
+    api JetPack.LifecycleRuntimeKtx
+    api JetPack.LifecycleViewModel
+    api JetPack.LifecycleViewModelKtx
+
+    api GitHub.OkHttp
+    api GitHub.OkHttpInterceptorLogging
+    api GitHub.Retrofit
+    api GitHub.RetrofitConverterGson
+    api GitHub.Gson
+    api GitHub.MMKV
+    api GitHub.AutoSize
+    api GitHub.Glide
+    api GitHub.ARoute
+    api GitHub.RecyclerViewAdapter
+    api GitHub.StatusBar
+    api GitHub.LiveEventBus
+    api GitHub.Bugly
+    api GitHub.PermissionX
+    api GitHub.SpinKit
+    api GitHub.LepuBle
+
+    kapt GitHub.GlideCompiler
+    kapt GitHub.ARouteCompiler
+
+    debugApi GitHub.Chuck
+    debugApi GitHub.LeakCanary
+    releaseApi GitHub.ChuckNo
+}

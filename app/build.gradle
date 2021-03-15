@@ -1,0 +1,85 @@
+import com.lepucare.xphealth.build.*
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId BuildConfig.applicationId
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+        testInstrumentationRunner AndroidX.AndroidJUnitRunner
+        multiDexKeepProguard file("multidexKeep.pro")
+    }
+
+//    signingConfigs {
+//        releaseConfig {
+//            storeFile file('')
+//            storePassword ""
+//            keyAlias ""
+//            keyPassword ""
+//        }
+//    }
+
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    if (outputFileName != null
+                            && outputFileName.endsWith('.apk')
+                            && 'release' == variant.buildType.name) {
+                        outputFileName = "${BuildConfig.applicationId}_${defaultConfig.versionCode}(${defaultConfig.versionName}).apk"
+                    }
+                }
+            }
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    if (outputFileName != null
+                            && outputFileName.endsWith('.apk')
+                            && 'debug' == variant.buildType.name) {
+                        outputFileName = "${BuildConfig.applicationId}_${defaultConfig.versionCode}(${defaultConfig.versionName}).apk"
+                    }
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    if (!BuildConfig.isAppMode) {
+        implementation project(path: ':module_main')
+        implementation project(path: ':module_mine')
+        implementation project(path: ':module_measure')
+        implementation project(path: ':module_report')
+        implementation project(path: ':module_doctor')
+
+        implementation project(path: ':module_login')
+        implementation project(path: ':module_device')
+        implementation project(path: ':module_upgrade')
+    } else {
+        implementation project(path: ':module_common')
+    }
+}
