@@ -59,6 +59,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 kapt {
@@ -78,3 +80,6 @@ dependencies {
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
 }
+
+
+

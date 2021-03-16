@@ -27,6 +27,7 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+
     buildFeatures {
         viewBinding = true
     }
@@ -55,17 +56,20 @@ dependencies {
     api Kotlin.Kotlin
     api Kotlin.CoroutinesCore
     api Kotlin.CoroutinesAndroid
+    api Kotlin.RoomKtx
 
     api JetPack.LifecycleRuntimeKtx
     api JetPack.LifecycleViewModel
     api JetPack.LifecycleViewModelKtx
+    api JetPack.DataStore
+    api JetPack.ProtoBuf
+
 
     api GitHub.OkHttp
     api GitHub.OkHttpInterceptorLogging
     api GitHub.Retrofit
     api GitHub.RetrofitConverterGson
     api GitHub.Gson
-    api GitHub.MMKV
     api GitHub.AutoSize
     api GitHub.Glide
     api GitHub.ARoute
@@ -79,6 +83,7 @@ dependencies {
 
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
+    kapt JetPack.RoomCompiler
 
     debugApi GitHub.Chuck
     debugApi GitHub.LeakCanary

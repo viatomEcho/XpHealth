@@ -27,6 +27,13 @@ object Version {
     const val LifecycleRuntimeKtx = "2.2.0"
     const val LifecycleViewModelKtx = "2.2.0"
 
+    const val DataStore = "1.0.0-alpha07"              //DataStore
+    const val DataStore_Core = "1.0.0-alpha07"         //Proto DataStore
+    const val ProtoBuf = "3.10.0"
+    const val ProtoBuf_Protoc = "3.10.0"
+
+    const val Room = "2.2.6"
+
 
     // GitHub----------------------------------------------------------------
     const val OkHttp = "3.14.9"                         // OkHttp
@@ -34,7 +41,6 @@ object Version {
     const val Retrofit = "2.9.0"                        // Retrofit
     const val RetrofitConverterGson = "2.9.0"           // Retrofit Gson 转换器
     const val Gson = "2.8.6"                            // Gson
-    const val MMKV = "1.2.2"                            // 腾讯 MMKV 替代SP
     const val AutoSize = "1.2.1"                        // 屏幕适配
     const val Glide = "4.11.0"                          // Glide
     const val ARoute = "1.5.0"                          // 阿里路由
@@ -76,6 +82,21 @@ object JetPack {
         "androidx.lifecycle:lifecycle-runtime-ktx:${Version.LifecycleRuntimeKtx}"
     const val LifecycleViewModelKtx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.LifecycleViewModelKtx}"
+
+    // proto dataStore
+    const val DataStore =
+            "androidx.datastore:datastore:${Version.DataStore}"
+    const val DataStore_Core =
+            "androidx.datastore:datastore-core:${Version.DataStore_Core}"
+    const val ProtoBuf =
+        "com.google.protobuf:protobuf-javalite:${Version.ProtoBuf}"
+    const val ProtoBuf_Protoc =
+        "com.google.protobuf:protoc:${Version.ProtoBuf_Protoc}"
+
+    //room
+    const val RoomCompiler =
+        "androidx.room:room-compiler:${Version.Room}"
+
 }
 
 object Kotlin {
@@ -83,6 +104,11 @@ object Kotlin {
     const val CoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Coroutines}"
     const val CoroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Coroutines}"
+
+    //room
+    const val RoomKtx =
+        "androidx.room:room-ktx:${Version.Room}"
+
 }
 
 object GitHub {
@@ -93,7 +119,6 @@ object GitHub {
     const val RetrofitConverterGson =
         "com.squareup.retrofit2:converter-gson:${Version.RetrofitConverterGson}"
     const val Gson = "com.google.code.gson:gson:${Version.Gson}"
-    const val MMKV = "com.tencent:mmkv-static:${Version.MMKV}" //准备弃用
     const val AutoSize = "me.jessyan:autosize:${Version.AutoSize}"
     const val Glide = "com.github.bumptech.glide:glide:${Version.Glide}"
     const val GlideCompiler = "com.github.bumptech.glide:compiler:${Version.Glide}"

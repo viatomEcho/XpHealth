@@ -24,6 +24,8 @@ open class BaseApplication : Application() {
         super.onCreate()
         context = applicationContext
         initialize()
+
+
     }
 
     /**
@@ -40,6 +42,8 @@ open class BaseApplication : Application() {
 
         // Bugly 初始化 第三个参数为SDK调试模式开关
         CrashReport.initCrashReport(this, "申请的id", BuildConfig.DEBUG)
+
+
     }
 
     override fun attachBaseContext(base: Context?) {

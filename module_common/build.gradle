@@ -1,8 +1,11 @@
 import com.lepucare.xphealth.build.*
 
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "com.google.protobuf"
 
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
@@ -27,6 +30,18 @@ android {
     }
 
     resourcePrefix "common_"
+
+    // 设置 proto 文件位置
+    sourceSets {
+        main {
+            proto {
+                // proto 文件默认路径是 src/main/proto
+                // 可以通过 srcDir 修改 proto 文件的位置
+                srcDir 'src/main/proto'
+            }
+        }
+    }
+
 }
 
 kapt {
@@ -39,7 +54,30 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     api project(path: ':module_base')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
+}
+
+protobuf {
+    // 设置 protoc 的版本
+    protoc {
+        // //从仓库下载 protoc 这里的版本号需要与依赖 com.google.protobuf:protobuf-javalite:xxx 版本相同
+        artifact = JetPack.ProtoBuf_Protoc
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option "lite"
+                }
+            }
+        }
+    }
+
+    // 默认生成目录 $buildDir/generated/source/proto 通过 generatedFilesBaseDir 改变生成位置
+//    generatedFilesBaseDir = "$projectDir/src/main"
 }

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "com.lepucare.xphealth.common.datastore.protobuf";
+option java_multiple_files = true;
+option java_outer_classname = "XpAppProtos";
+
+message Settings{
+    // 格式：字段类型 + 字段名称 + 字段编号
+   bool isLogin = 1;
+   bool isFirstEnter = 2;
+}
