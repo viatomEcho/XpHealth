@@ -23,10 +23,8 @@ abstract class BaseFrameNotMVVMActivity<VB : ViewBinding> : AppCompatActivity(),
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)
         mBinding.initView()
-        initData()
+        registerLiveEvent()
+        initRequestData()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }

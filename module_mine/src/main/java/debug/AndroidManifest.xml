@@ -11,9 +11,25 @@
     <application
         android:name="debug.MineApplication"
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/mine_app_name"
-        android:theme="@style/mine_Theme.XpHealth"
+        android:networkSecurityConfig="@xml/base_network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/base_Theme.MyApplication"
         tools:ignore="UnusedAttribute">
+
+        <activity
+            android:name=".ui.TranslationActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

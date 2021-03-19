@@ -15,5 +15,10 @@ interface FrameNotMVVMView<VB : ViewBinding> {
     /**
      * 初始化界面创建时的数据请求
      */
-    fun initData()
+    fun initRequestData()
+
+    /**
+     * 注册LiveEvent
+     */
+    fun  registerLiveEvent()
 }

@@ -3,7 +3,6 @@
     package="com.lepucare.xphealth.common">
 
     <application>
-        <activity android:name=".datastore.proto.MainActivity"></activity>
     </application>
 
 </manifest>

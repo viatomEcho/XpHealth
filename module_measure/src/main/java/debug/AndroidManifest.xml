@@ -11,9 +11,13 @@
     <application
         android:name="debug.MeasureApplication"
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/measure_app_name"
-        android:theme="@style/measure_Theme.XpHealth"
+        android:networkSecurityConfig="@xml/base_network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/base_Theme.MyApplication"
         tools:ignore="UnusedAttribute">
-    </application>
 
+    </application>
 </manifest>

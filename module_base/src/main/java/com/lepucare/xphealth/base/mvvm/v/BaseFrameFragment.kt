@@ -38,11 +38,11 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : ViewModel> : Fragment(),
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)
         mBinding.initView()
-        initLiveDataObserve()
-        initData()
+        subscribeUi()
+        registerLiveEvent()
+        initRequestData()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
+
+
 }

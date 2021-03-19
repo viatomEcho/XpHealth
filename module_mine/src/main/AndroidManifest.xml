@@ -3,6 +3,7 @@
     package="com.lepucare.xphealth.mine">
 
     <application>
+        <activity android:name=".ui.TranslationActivity"/>
     </application>
 
 </manifest>

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lepucare.xphealth.main">
+    package="com.lepucare.xphealth.main" >
 
-    <application></application>
+    <application>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:label="@string/main_title_activity_main" >
+        </activity>
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/main_AppTheme.Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>

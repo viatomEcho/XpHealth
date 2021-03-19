@@ -2,8 +2,8 @@ import com.lepucare.xphealth.build.*
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
@@ -28,8 +28,9 @@ android {
     }
 
 
+
     buildFeatures {
-        viewBinding = true
+        viewBinding true
     }
 
     resourcePrefix "base_"
@@ -51,18 +52,25 @@ dependencies {
     api AndroidX.FragmentKtx
     api AndroidX.MultiDex
 
+    api AndroidX.NavigationFragment
+    api AndroidX.Navigation
+
+
     api Android.Material
+
 
     api Kotlin.Kotlin
     api Kotlin.CoroutinesCore
     api Kotlin.CoroutinesAndroid
     api Kotlin.RoomKtx
+//    api Kotlin.WorkKtx
 
     api JetPack.LifecycleRuntimeKtx
     api JetPack.LifecycleViewModel
     api JetPack.LifecycleViewModelKtx
     api JetPack.DataStore
     api JetPack.ProtoBuf
+
 
 
     api GitHub.OkHttp
@@ -81,11 +89,22 @@ dependencies {
     api GitHub.SpinKit
     api GitHub.LepuBle
 
+    api Hilt.Hilt
+    api Hilt.HiltLifecycleVM
+//    api Hilt.AssistedInject
+
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
     kapt JetPack.RoomCompiler
+    kapt Hilt.HiltCompiler
+    kapt Hilt.HiltAndroidCompiler
+    kapt Hilt.AssistedInjectCompiler
 
     debugApi GitHub.Chuck
     debugApi GitHub.LeakCanary
     releaseApi GitHub.ChuckNo
+    testImplementation Test.RoomTesting
+    androidTestImplementation Test.HiltTesting
+    kaptAndroidTest Test.HiltAndroidCompiler
+
 }

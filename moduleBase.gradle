@@ -6,7 +6,6 @@ if (BuildConfig.isAppMode) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -19,6 +18,15 @@ android {
         versionCode BuildConfig.versionCode
         versionName BuildConfig.versionName
         testInstrumentationRunner AndroidX.AndroidJUnitRunner
+
+        //阿里路由框架配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+
     }
 
     compileOptions {
@@ -30,8 +38,10 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+
+
     buildFeatures {
-        viewBinding = true
+        viewBinding true
     }
 
     //根据不同的模式加载不同的AndroidManifest文件
@@ -63,11 +73,12 @@ android {
 
 }
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.name)
-    }
-}
+//kapt {
+//    arguments {
+//        arg("AROUTER_MODULE_NAME", project.name)
+//    }
+//}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -77,8 +88,20 @@ dependencies {
     testImplementation Android.Junit
     androidTestImplementation AndroidX.TestExtJunit
     androidTestImplementation AndroidX.TestEspresso
+
+
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
+
+
+    kapt JetPack.RoomCompiler
+    kapt Hilt.HiltCompiler
+    kapt Hilt.HiltAndroidCompiler
+    kapt Hilt.AssistedInjectCompiler
+
+    testImplementation Test.RoomTesting
+    androidTestImplementation Test.HiltTesting
+    kaptAndroidTest Test.HiltAndroidCompiler
 }
 
 

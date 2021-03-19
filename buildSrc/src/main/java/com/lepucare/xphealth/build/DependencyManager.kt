@@ -14,13 +14,21 @@ object Version {
     const val FragmentKtx = "1.2.5"
     const val MultiDex = "2.0.1"
 
+    const val Navigation = "2.3.3"
+
+
     // Android---------------------------------------------------------------
     const val Junit = "4.13"
     const val Material = "1.2.0"
+    const val Gradle = "4.1.1"
+
+
 
     // Kotlin----------------------------------------------------------------
-    const val Kotlin = "1.4.0"
+    const val Kotlin = "1.4.10"
     const val Coroutines = "1.3.7"                      // 协程
+    const val WorkManager = "2.5.0"                     //WorkManager
+
 
     // JetPack---------------------------------------------------------------
     const val LifecycleViewModel = "2.2.0"
@@ -28,9 +36,9 @@ object Version {
     const val LifecycleViewModelKtx = "2.2.0"
 
     const val DataStore = "1.0.0-alpha07"              //DataStore
-    const val DataStore_Core = "1.0.0-alpha07"         //Proto DataStore
+    const val DataStoreCore = "1.0.0-alpha07"         //Proto DataStore
     const val ProtoBuf = "3.10.0"
-    const val ProtoBuf_Protoc = "3.10.0"
+    const val ProtoBufPlugin = "0.8.12"
 
     const val Room = "2.2.6"
 
@@ -55,6 +63,13 @@ object Version {
     const val SpinKit = "1.4.0"                         // 加载图
 
     const val LepuBle = "1.0.10dev1"                        //蓝牙
+
+
+    //hilt
+    const val Hilt = "2.28-alpha"
+    const val HiltViewModel= "1.0.0-alpha02"
+    const val assistedInject = "0.5.2"
+
 }
 
 object AndroidX {
@@ -68,34 +83,41 @@ object AndroidX {
     const val ActivityKtx = "androidx.activity:activity-ktx:${Version.ActivityKtx}"
     const val FragmentKtx = "androidx.fragment:fragment-ktx:${Version.FragmentKtx}"
     const val MultiDex = "androidx.multidex:multidex:${Version.MultiDex}"
+
+    const val Navigation = "androidx.navigation:navigation-ui-ktx:${Version.Navigation}"
+    const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.Navigation}"
+
 }
 
 object Android {
     const val Junit = "junit:junit:${Version.Junit}"
     const val Material = "com.google.android.material:material:${Version.Material}"
+
+
 }
 
 object JetPack {
     const val LifecycleViewModel =
-        "androidx.lifecycle:lifecycle-viewmodel:${Version.LifecycleViewModel}"
+            "androidx.lifecycle:lifecycle-viewmodel:${Version.LifecycleViewModel}"
     const val LifecycleRuntimeKtx =
-        "androidx.lifecycle:lifecycle-runtime-ktx:${Version.LifecycleRuntimeKtx}"
+            "androidx.lifecycle:lifecycle-runtime-ktx:${Version.LifecycleRuntimeKtx}"
     const val LifecycleViewModelKtx =
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.LifecycleViewModelKtx}"
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.LifecycleViewModelKtx}"
 
     // proto dataStore
     const val DataStore =
             "androidx.datastore:datastore:${Version.DataStore}"
     const val DataStore_Core =
-            "androidx.datastore:datastore-core:${Version.DataStore_Core}"
+            "androidx.datastore:datastore-core:${Version.DataStoreCore}"
     const val ProtoBuf =
-        "com.google.protobuf:protobuf-javalite:${Version.ProtoBuf}"
+            "com.google.protobuf:protobuf-javalite:${Version.ProtoBuf}"
     const val ProtoBuf_Protoc =
-        "com.google.protobuf:protoc:${Version.ProtoBuf_Protoc}"
+            "com.google.protobuf:protoc:${Version.ProtoBuf}"
 
     //room
     const val RoomCompiler =
-        "androidx.room:room-compiler:${Version.Room}"
+            "androidx.room:room-compiler:${Version.Room}"
+
 
 }
 
@@ -105,9 +127,14 @@ object Kotlin {
     const val CoroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Coroutines}"
 
-    //room
+    // jetpack ktx
     const val RoomKtx =
         "androidx.room:room-ktx:${Version.Room}"
+    const val WorkKtx =
+        "androidx.work:work-runtime-ktx:${Version.WorkManager}"
+
+
+
 
 }
 
@@ -135,4 +162,22 @@ object GitHub {
     const val SpinKit = "com.github.ybq:Android-SpinKit:${Version.SpinKit}"
     const val LiveEventBus = "com.jeremyliao:live-event-bus-x:${Version.LiveEventBus}"
     const val LepuBle = "com.lepu.blepro:lepu-ble:${Version.LepuBle}"
+}
+
+object Hilt{
+    const val Hilt = "com.google.dagger:hilt-android:${Version.Hilt}"
+    const val HiltLifecycleVM = "androidx.hilt:hilt-lifecycle-viewmodel:${Version.HiltViewModel}"
+
+    const val HiltCompiler = "androidx.hilt:hilt-compiler:${Version.HiltViewModel}"
+    const val HiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt}"
+
+    const val AssistedInject = "com.squareup.inject:assisted-inject-annotations-dagger2:${Version.assistedInject}"
+    const val AssistedInjectCompiler = "com.squareup.inject:assisted-inject-processor-dagger2:${Version.assistedInject}"
+}
+
+object Test{
+    const val RoomTesting ="androidx.room:room-testing:${Version.Room}"
+    const val HiltTesting = "com.google.dagger:hilt-android-testing:${Version.Hilt}"
+    const val HiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt}"
+
 }

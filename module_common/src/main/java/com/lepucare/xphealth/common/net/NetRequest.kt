@@ -1,5 +1,6 @@
 package com.lepucare.xphealth.common.net
 
+import com.lepucare.xphealth.common.net.api.ApiBaiDuTranslationService
 import com.lepucare.xphealth.common.net.api.ApiCommonService
 
 /**
@@ -12,4 +13,10 @@ object NetRequest {
     val commonService by lazy(mode = LazyThreadSafetyMode.NONE) {
         NetServiceCreator.create(ApiCommonService::class.java)
     }
+
+    //
+    val mineService by lazy(mode = LazyThreadSafetyMode.NONE) {
+        NetServiceCreator.create(ApiBaiDuTranslationService::class.java)
+    }
+
 }

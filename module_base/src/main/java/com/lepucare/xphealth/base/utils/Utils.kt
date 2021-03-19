@@ -1,10 +1,12 @@
 package com.lepucare.xphealth.base.utils
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Build
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.alibaba.android.arouter.launcher.ARouter
@@ -102,4 +104,17 @@ fun isNetworkAvailable(): Boolean {
  */
 fun aRouterJump(routerUrl: String) {
     ARouter.getInstance().build(routerUrl).navigation()
+}
+
+
+fun aRouterJump(activity: Activity,routerUrl: String,  requestCode: Int) {
+    ARouter.getInstance().build(routerUrl).navigation(activity, requestCode)
+}
+
+fun aRouterJump(routerUrl: String, bundle: Bundle) {
+    ARouter.getInstance().build(routerUrl).with(bundle).navigation()
+}
+
+fun aRouterJump(activity: Activity, routerUrl: String, bundle: Bundle, requestCode: Int) {
+    ARouter.getInstance().build(routerUrl).with(bundle).navigation(activity, requestCode)
 }

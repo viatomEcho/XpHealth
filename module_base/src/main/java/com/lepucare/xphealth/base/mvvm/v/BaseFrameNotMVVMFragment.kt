@@ -32,10 +32,7 @@ abstract class BaseFrameNotMVVMFragment<VB : ViewBinding> : Fragment(), FrameNot
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)
         mBinding.initView()
-        initData()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+        registerLiveEvent()
+        initRequestData()
     }
 }

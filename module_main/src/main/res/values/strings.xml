@@ -1,3 +1,20 @@
 <resources>
-    <string name="main_app_name">MainApplication</string>
+    <string name="main_app_name">Lib_Main</string>
+    <string name="main_splash_text">Welcome to XPHealth!</string>
+    <string name="main_select_function">选择功能</string>
+    <string name="main_title_home">Home</string>
+    <string name="main_title_dashboard">Dashboard</string>
+    <string name="main_title_notifications">Notifications</string>
+    <string name="main_title_activity_main2">Main2Activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="main_first_fragment_label">First Fragment</string>
+    <string name="main_second_fragment_label">Second Fragment</string>
+    <string name="main_next">Next</string>
+    <string name="main_previous">Previous</string>
+
+    <string name="main_hello_first_fragment">Hello first fragment</string>
+    <string name="main_hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="main_title_activity_main">MainActivity</string>
+
+
 </resources>

@@ -1,5 +1,12 @@
 apply from: '../moduleBase.gradle'
+apply plugin: 'kotlin-android'
 
 android {
     resourcePrefix "main_"
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly 'com.google.android.wearable:wearable:2.8.1'
+    implementation 'androidx.wear:wear:1.1.0'
 }

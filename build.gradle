@@ -6,13 +6,16 @@ buildscript {
     }
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/google/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/jcenter/'}
         jcenter()
         google()
     }
     dependencies {
         classpath ProjectPluginManager.AndroidToolsPlugin
         classpath ProjectPluginManager.KotlinPlugin
-        classpath ProjectPluginManager.ProtoBuf
+        classpath ProjectPluginManager.HiltAndroidPlugin
+        classpath ProjectPluginManager.ProtoBufPlugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
     }
@@ -21,6 +24,8 @@ buildscript {
 allprojects {
     repositories {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/google/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/jcenter/'}
         jcenter()
         google()
     }
