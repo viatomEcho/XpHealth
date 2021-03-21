@@ -40,14 +40,10 @@ object Version {
     const val ProtoBuf = "3.10.0"
     const val ProtoBufPlugin = "0.8.12"
 
-    const val Room = "2.2.6"
+    const val Room = "2.3.0-alpha01"
 
 
     // GitHub----------------------------------------------------------------
-    const val OkHttp = "3.14.9"                         // OkHttp
-    const val OkHttpInterceptorLogging = "3.12.0"       // OkHttp 请求Log拦截器
-    const val Retrofit = "2.9.0"                        // Retrofit
-    const val RetrofitConverterGson = "2.9.0"           // Retrofit Gson 转换器
     const val Gson = "2.8.6"                            // Gson
     const val AutoSize = "1.2.1"                        // 屏幕适配
     const val Glide = "4.11.0"                          // Glide
@@ -61,14 +57,20 @@ object Version {
     const val LeakCanary = "2.4"                        // 检测内存泄漏
     const val Chuck = "1.1.0"                           // OkHttp 请求信息拦截器(UI)
     const val SpinKit = "1.4.0"                         // 加载图
+    const val Timber = "4.7.1"
 
     const val LepuBle = "1.0.10dev1"                        //蓝牙
 
 
     //hilt
-    const val Hilt = "2.28-alpha"
-    const val HiltViewModel= "1.0.0-alpha02"
-    const val assistedInject = "0.5.2"
+    const val Hit = "2.28-alpha"
+    const val HitViewModule = "1.0.0-alpha01"
+
+    const val Coil = "1.1.0"
+
+    const val Retrofit = "2.9.0"
+    const val OkhttpLogging = "4.9.0"
+
 
 }
 
@@ -119,6 +121,10 @@ object JetPack {
             "androidx.room:room-compiler:${Version.Room}"
 
 
+    const val paging = "3.0.0-alpha02"
+
+
+
 }
 
 object Kotlin {
@@ -127,9 +133,6 @@ object Kotlin {
     const val CoroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Coroutines}"
 
-    // jetpack ktx
-    const val RoomKtx =
-        "androidx.room:room-ktx:${Version.Room}"
     const val WorkKtx =
         "androidx.work:work-runtime-ktx:${Version.WorkManager}"
 
@@ -139,12 +142,6 @@ object Kotlin {
 }
 
 object GitHub {
-    const val OkHttp = "com.squareup.okhttp3:okhttp:${Version.OkHttp}"
-    const val OkHttpInterceptorLogging =
-        "com.squareup.okhttp3:logging-interceptor:${Version.OkHttpInterceptorLogging}"
-    const val Retrofit = "com.squareup.retrofit2:retrofit:${Version.Retrofit}"
-    const val RetrofitConverterGson =
-        "com.squareup.retrofit2:converter-gson:${Version.RetrofitConverterGson}"
     const val Gson = "com.google.code.gson:gson:${Version.Gson}"
     const val AutoSize = "me.jessyan:autosize:${Version.AutoSize}"
     const val Glide = "com.github.bumptech.glide:glide:${Version.Glide}"
@@ -162,22 +159,38 @@ object GitHub {
     const val SpinKit = "com.github.ybq:Android-SpinKit:${Version.SpinKit}"
     const val LiveEventBus = "com.jeremyliao:live-event-bus-x:${Version.LiveEventBus}"
     const val LepuBle = "com.lepu.blepro:lepu-ble:${Version.LepuBle}"
+
+    const val timber = "com.jakewharton.timber:timber:${Version.Timber}"
+
+
 }
 
 object Hilt{
-    const val Hilt = "com.google.dagger:hilt-android:${Version.Hilt}"
-    const val HiltLifecycleVM = "androidx.hilt:hilt-lifecycle-viewmodel:${Version.HiltViewModel}"
 
-    const val HiltCompiler = "androidx.hilt:hilt-compiler:${Version.HiltViewModel}"
-    const val HiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt}"
-
-    const val AssistedInject = "com.squareup.inject:assisted-inject-annotations-dagger2:${Version.assistedInject}"
-    const val AssistedInjectCompiler = "com.squareup.inject:assisted-inject-processor-dagger2:${Version.assistedInject}"
+    const val daggerRuntime = "com.google.dagger:hilt-android:${Version.Hit}"
+    const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hit}"
+    const val viewModule = "androidx.hilt:hilt-lifecycle-viewmodel:${Version.HitViewModule}"
+    const val compiler = "androidx.hilt:hilt-compiler:${Version.HitViewModule}"
 }
 
-object Test{
-    const val RoomTesting ="androidx.room:room-testing:${Version.Room}"
-    const val HiltTesting = "com.google.dagger:hilt-android-testing:${Version.Hilt}"
-    const val HiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.Hilt}"
 
+object Room {
+    const val runtime = "androidx.room:room-runtime:${Version.Room}"
+    const val compiler = "androidx.room:room-compiler:${Version.Room}"
+    const val ktx = "androidx.room:room-ktx:${Version.Room}"
+    const val rxjava2 = "androidx.room:room-rxjava2:${Version.Room}"
+    const val testing = "androidx.room:room-testing:${Version.Room}"
 }
+
+object Coil {
+    const val runtime = "io.coil-kt:coil:${Version.Coil}"
+}
+
+object Retrofit {
+    const val runtime = "com.squareup.retrofit2:retrofit:${Version.Retrofit}"
+    const val gson = "com.squareup.retrofit2:converter-gson:${Version.Retrofit}"
+    const val mock = "com.squareup.retrofit2:retrofit-mock:${Version.Retrofit}"
+    const val logging = "com.squareup.okhttp3:logging-interceptor:${Version.OkhttpLogging}"
+}
+
+

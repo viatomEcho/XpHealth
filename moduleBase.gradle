@@ -30,18 +30,21 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+
     }
 
 
 
     buildFeatures {
-        viewBinding true
+        dataBinding = true
+        viewBinding = true
     }
 
     //根据不同的模式加载不同的AndroidManifest文件
@@ -93,15 +96,6 @@ dependencies {
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
 
-
-    kapt JetPack.RoomCompiler
-    kapt Hilt.HiltCompiler
-    kapt Hilt.HiltAndroidCompiler
-    kapt Hilt.AssistedInjectCompiler
-
-    testImplementation Test.RoomTesting
-    androidTestImplementation Test.HiltTesting
-    kaptAndroidTest Test.HiltAndroidCompiler
 }
 
 

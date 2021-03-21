@@ -8,5 +8,5 @@ object ProjectPluginManager {
     const val KotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.Kotlin}"
 
     const val ProtoBufPlugin = "com.google.protobuf:protobuf-gradle-plugin:${Version.ProtoBufPlugin}"
-    const val HiltAndroidPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Version.Hilt}"
+    const val HiltAndroidPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Version.Hit}"
 }

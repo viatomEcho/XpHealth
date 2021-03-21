@@ -4,6 +4,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-parcelize'
+
 
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
@@ -19,18 +21,21 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+
     }
 
 
 
     buildFeatures {
-        viewBinding true
+        dataBinding  true
+        viewBinding  true
     }
 
     resourcePrefix "base_"
@@ -62,7 +67,6 @@ dependencies {
     api Kotlin.Kotlin
     api Kotlin.CoroutinesCore
     api Kotlin.CoroutinesAndroid
-    api Kotlin.RoomKtx
 //    api Kotlin.WorkKtx
 
     api JetPack.LifecycleRuntimeKtx
@@ -73,10 +77,6 @@ dependencies {
 
 
 
-    api GitHub.OkHttp
-    api GitHub.OkHttpInterceptorLogging
-    api GitHub.Retrofit
-    api GitHub.RetrofitConverterGson
     api GitHub.Gson
     api GitHub.AutoSize
     api GitHub.Glide
@@ -89,22 +89,31 @@ dependencies {
     api GitHub.SpinKit
     api GitHub.LepuBle
 
-    api Hilt.Hilt
-    api Hilt.HiltLifecycleVM
-//    api Hilt.AssistedInject
 
     kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
     kapt JetPack.RoomCompiler
-    kapt Hilt.HiltCompiler
-    kapt Hilt.HiltAndroidCompiler
-    kapt Hilt.AssistedInjectCompiler
 
     debugApi GitHub.Chuck
     debugApi GitHub.LeakCanary
     releaseApi GitHub.ChuckNo
-    testImplementation Test.RoomTesting
-    androidTestImplementation Test.HiltTesting
-    kaptAndroidTest Test.HiltAndroidCompiler
+
+    api Room.runtime
+    api Room.ktx
+    kapt Room.compiler
+
+
+    api Hilt.daggerRuntime
+    kapt Hilt.daggerCompiler
+    api Hilt.viewModule
+    kapt Hilt.compiler
+
+
+    api Coil.runtime
+
+    api Retrofit.runtime
+    api Retrofit.gson
+    api Retrofit.logging
+
 
 }

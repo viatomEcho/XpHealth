@@ -10,6 +10,7 @@ import com.lepucare.xphealth.base.utils.ActivityStackManager
  * @Class: CommonApplication
  * @Remark: 项目相关的Application
  */
+
 open class CommonApplication : BaseApplication(), Application.ActivityLifecycleCallbacks {
 
     override fun onCreate() {
