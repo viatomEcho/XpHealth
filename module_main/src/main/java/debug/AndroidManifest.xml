@@ -15,7 +15,7 @@
         android:name="debug.MainApplication"
         android:allowBackup="true"
         android:label="@string/main_app_name"
-        android:networkSecurityConfig="@xml/base_network_security_config"
+
         android:theme="@style/base_Theme.MyApplication"
         tools:ignore="UnusedAttribute">
         <activity

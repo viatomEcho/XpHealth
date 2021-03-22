@@ -9,14 +9,13 @@ import com.lepucare.xphealth.main.databinding.MainActivitySplashBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import me.jessyan.autosize.internal.CancelAdapt
 
 /**
  * @Class:
  * @Remark:
  */
 @Route(path = RouteUrl.SplashActivity)
-class SplashActivity : BaseActivity<MainActivitySplashBinding, SplashViewModel>(), CancelAdapt {
+class SplashActivity : BaseActivity<MainActivitySplashBinding, SplashViewModel>() {
 
     override fun MainActivitySplashBinding.initView() {
         jumpMain()

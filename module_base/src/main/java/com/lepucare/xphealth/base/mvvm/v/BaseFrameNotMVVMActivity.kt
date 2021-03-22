@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
-import com.quyunshuo.base.utils.BindingReflex
+import com.lepucare.xphealth.base.utils.BindingReflex
 
 /**
  * @Class: BaseFrameNotMVVMActivity

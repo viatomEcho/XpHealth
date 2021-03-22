@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
-import com.quyunshuo.base.utils.BindingReflex
+import com.lepucare.xphealth.base.utils.BindingReflex
 import com.quyunshuo.base.mvvm.v.FrameView
 
 /**

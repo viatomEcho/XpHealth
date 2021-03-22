@@ -2,9 +2,14 @@ import com.lepucare.xphealth.build.*
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 
 android {
@@ -17,12 +22,17 @@ android {
         versionCode BuildConfig.versionCode
         versionName BuildConfig.versionName
         testInstrumentationRunner AndroidX.AndroidJUnitRunner
-        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
@@ -34,86 +44,59 @@ android {
 
 
     buildFeatures {
-        dataBinding  true
-        viewBinding  true
+        dataBinding true
+        viewBinding true
     }
 
     resourcePrefix "base_"
 }
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
-
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api AndroidX.CoreKtx
-    api AndroidX.AppCompat
-    api AndroidX.ConstraintLayout
-    api AndroidX.ActivityKtx
-    api AndroidX.FragmentKtx
-    api AndroidX.MultiDex
 
-    api AndroidX.NavigationFragment
-    api AndroidX.Navigation
+    api Kt.stdlibJdk8
+    api AndroidX.coreKtx
+    api AndroidX.appcompat
+    api AndroidX.constraintlayout
+    api AndroidX.pagingRuntime
+    api Fragment.runtimeKtx
+    api Depend.timber
+    api Room.runtime
+    api Room.ktx
+    kapt Room.compiler
+    api Anko.common
+    api AndroidX.cardview
+    api Retrofit.runtime
+    api Retrofit.gson
+    api Retrofit.logging
+    api AndroidX.swiperefreshlayout
+    api Coil.runtime
+    api AndroidX.appStartup
+    api Android.meteria
+    api Navigation.ktx
+    api Navigation.fragmentKtx
+
+    api Hilt.daggerRuntime
+    kapt Hilt.daggerCompiler
+
+    api Hilt.viewModule
+    kapt Hilt.compiler
+
+    api Depend.jDatabinding
 
 
-    api Android.Material
-
-
-    api Kotlin.Kotlin
-    api Kotlin.CoroutinesCore
-    api Kotlin.CoroutinesAndroid
-//    api Kotlin.WorkKtx
 
     api JetPack.LifecycleRuntimeKtx
     api JetPack.LifecycleViewModel
     api JetPack.LifecycleViewModelKtx
-    api JetPack.DataStore
-    api JetPack.ProtoBuf
 
+    api DataStore.DataStore
+    api DataStore.ProtoBuf
 
-
-    api GitHub.Gson
-    api GitHub.AutoSize
-    api GitHub.Glide
     api GitHub.ARoute
-    api GitHub.RecyclerViewAdapter
-    api GitHub.StatusBar
     api GitHub.LiveEventBus
-    api GitHub.Bugly
-    api GitHub.PermissionX
-    api GitHub.SpinKit
     api GitHub.LepuBle
 
-
-    kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
-    kapt JetPack.RoomCompiler
-
-    debugApi GitHub.Chuck
-    debugApi GitHub.LeakCanary
-    releaseApi GitHub.ChuckNo
-
-    api Room.runtime
-    api Room.ktx
-    kapt Room.compiler
-
-
-    api Hilt.daggerRuntime
-    kapt Hilt.daggerCompiler
-    api Hilt.viewModule
-    kapt Hilt.compiler
-
-
-    api Coil.runtime
-
-    api Retrofit.runtime
-    api Retrofit.gson
-    api Retrofit.logging
-
-
 }

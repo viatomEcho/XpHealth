@@ -3,4 +3,9 @@
     <string name="mine_translation">翻译</string>
     <string name="mine_edit_hint">输入中文翻译</string>
     <string name="mine_hello">Hello!</string>
+
+    <string name="mine_footer_retary">重试</string>
+    <string name="mine_weight">Weight</string>
+    <string name="mine_height">Height</string>
+    <string name="mine_search_et_hit">输入神奇宝贝的名字</string>
 </resources>

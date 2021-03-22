@@ -1,2 +1,7 @@
-plugins { `kotlin-dsl` }
-repositories { jcenter() }
+plugins {
+    `kotlin-dsl`
+}
+repositories {
+    google()
+    maven("https://maven.aliyun.com/repository/public")
+}

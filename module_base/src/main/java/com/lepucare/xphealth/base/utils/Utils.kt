@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jeremyliao.liveeventbus.LiveEventBus
+import com.lepucare.xphealth.base.AppHelper
 import com.lepucare.xphealth.base.BaseApplication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -62,13 +63,13 @@ private var mToast: Toast? = null
  */
 fun toastShow(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        Toast.makeText(BaseApplication.context, text, duration).show()
+        Toast.makeText(AppHelper.mContext, text, duration).show()
     } else {
         if (mToast != null) {
             mToast?.setText(text)
             mToast?.show()
         } else {
-            mToast = Toast.makeText(BaseApplication.context, text, duration)
+            mToast = Toast.makeText(AppHelper.mContext, text, duration)
             mToast?.show()
         }
     }
@@ -81,7 +82,7 @@ fun toastShow(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
 @SuppressLint("MissingPermission")
 fun isNetworkAvailable(): Boolean {
     val connectivityManager: ConnectivityManager? =
-        BaseApplication.context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        AppHelper.mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     if (connectivityManager == null) {
         return false
     } else {

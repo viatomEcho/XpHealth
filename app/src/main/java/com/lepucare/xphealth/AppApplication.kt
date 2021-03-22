@@ -11,7 +11,4 @@ import com.lepucare.xphealth.common.CommonApplication
 
 class AppApplication : CommonApplication() {
 
-    override fun initialize() {
-        super.initialize()
-    }
 }

@@ -1,4 +1,4 @@
-package com.quyunshuo.base.utils
+package com.lepucare.xphealth.base.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

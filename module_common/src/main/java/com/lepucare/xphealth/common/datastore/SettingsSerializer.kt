@@ -6,7 +6,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.core.Serializer
 import androidx.datastore.dataStore
 import com.google.protobuf.InvalidProtocolBufferException
-import com.lepucare.xphealth.base.BaseApplication.Companion.context
+import com.lepucare.xphealth.base.AppHelper
 import com.lepucare.xphealth.common.datastore.protobuf.Settings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -49,23 +49,23 @@ val Context.settingsDataStore: DataStore<Settings> by dataStore(
 //    }
 
 suspend fun setLogin(isLogin: Boolean){
-    context.settingsDataStore.updateData {
+    AppHelper.mContext.settingsDataStore.updateData {
         it.toBuilder().setIsLogin(isLogin).build()
     }
 }
 
 suspend fun isLogin(){
-    context.settingsDataStore.data.map { it.isLogin }.first()
+    AppHelper.mContext.settingsDataStore.data.map { it.isLogin }.first()
 }
 
 suspend fun setFirstEnter(isFirst: Boolean){
-    context.settingsDataStore.updateData {
+    AppHelper.mContext.settingsDataStore.updateData {
         it.toBuilder().setIsFirstEnter(isFirst).build()
     }
 }
 
 suspend fun isFirstEnter(){
-    context.settingsDataStore.data.map { it.isFirstEnter }.first()
+    AppHelper.mContext.settingsDataStore.data.map { it.isFirstEnter }.first()
 }
 
 

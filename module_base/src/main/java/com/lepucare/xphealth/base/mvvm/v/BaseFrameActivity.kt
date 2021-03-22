@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
 import com.quyunshuo.base.mvvm.v.FrameView
-import com.quyunshuo.base.utils.BindingReflex
+import com.lepucare.xphealth.base.utils.BindingReflex
 
 /**
  * @Class: BaseFrameActivity

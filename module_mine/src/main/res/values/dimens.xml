@@ -23,5 +23,11 @@
     <dimen name="mine_card_elevation">2dp</dimen>
     <dimen name="mine_card_corner_radius">12dp</dimen>
 
+    <integer name="mine_progress_animate_duration">1000</integer>
+    <integer name="mine_porgress_default_value">40</integer>
+    <integer name="mine_porgress_tpye_rect">0</integer>
+    <integer name="mine_porgress_tpye_circle">1</integer>
+    <integer name="mine_porgress_tpye_round_rect">2</integer>
+
 
 </resources>

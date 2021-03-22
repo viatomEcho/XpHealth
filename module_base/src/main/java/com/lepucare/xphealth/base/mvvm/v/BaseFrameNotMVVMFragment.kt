@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
-import com.quyunshuo.base.utils.BindingReflex
+import com.lepucare.xphealth.base.utils.BindingReflex
 
 /**
  * @Class: BaseFrameNotMVVMFragment
