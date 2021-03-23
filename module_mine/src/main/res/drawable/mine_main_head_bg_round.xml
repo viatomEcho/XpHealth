@@ -3,13 +3,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@color/mine_color_white" />
+            <solid android:color="@android:color/white" />
         </shape>
     </item>
 
     <item>
         <shape>
-            <solid android:color="@color/mine_head_bg_red" />
+            <solid android:color="@android:color/holo_red_light" />
             <corners
                 android:bottomLeftRadius="32dp"
                 android:bottomRightRadius="32dp"

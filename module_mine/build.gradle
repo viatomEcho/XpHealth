@@ -1,5 +1,16 @@
-apply from: '../moduleBase.gradle'
+import com.lepucare.xphealth.build.Hilt
 
+apply from: '../moduleBase.gradle'
+apply plugin: 'dagger.hilt.android.plugin'
 android {
     resourcePrefix "mine_"
+}
+
+
+dependencies {
+
+    api Hilt.daggerRuntime
+    kapt Hilt.daggerCompiler
+    api Hilt.viewModule
+    kapt Hilt.compiler
 }

@@ -1,12 +1,16 @@
+import com.lepucare.xphealth.build.Hilt
+
 apply from: '../moduleBase.gradle'
-apply plugin: 'kotlin-android'
+
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     resourcePrefix "main_"
 }
-
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compileOnly 'com.google.android.wearable:wearable:2.8.1'
-    implementation 'androidx.wear:wear:1.1.0'
+
+    api Hilt.daggerRuntime
+    kapt Hilt.daggerCompiler
+    api Hilt.viewModule
+    kapt Hilt.compiler
 }

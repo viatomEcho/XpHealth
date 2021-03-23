@@ -15,14 +15,8 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/module_base" />
             <option value="$PROJECT_DIR$/module_common" />
-            <option value="$PROJECT_DIR$/module_device" />
-            <option value="$PROJECT_DIR$/module_doctor" />
-            <option value="$PROJECT_DIR$/module_login" />
             <option value="$PROJECT_DIR$/module_main" />
-            <option value="$PROJECT_DIR$/module_measure" />
             <option value="$PROJECT_DIR$/module_mine" />
-            <option value="$PROJECT_DIR$/module_report" />
-            <option value="$PROJECT_DIR$/module_upgrade" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

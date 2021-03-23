@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding.jump.setOnClickListener(View.OnClickListener {
-//      aRouterJump(RouteUrl.MineMainActivity)
+      aRouterJump(RouteUrl.MineMainActivity)
     })
   }
 

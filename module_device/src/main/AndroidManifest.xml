@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lepucare.xphealth.device">
-
-    <application>
-<!--        只需要注册集成模式需要的activity-->
-    </application>
-
-</manifest>

@@ -1,6 +1,7 @@
 package debug
 
 import com.lepucare.xphealth.common.CommonApplication
+import dagger.hilt.android.HiltAndroidApp
 
 
 /**

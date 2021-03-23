@@ -3,7 +3,6 @@ import com.lepucare.xphealth.build.*
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
-
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
     buildToolsVersion BuildConfig.buildToolsVersion
@@ -74,15 +73,11 @@ dependencies {
     if (!BuildConfig.isAppMode) {
         implementation project(path: ':module_main')
         implementation project(path: ':module_mine')
-        implementation project(path: ':module_measure')
-        implementation project(path: ':module_report')
-        implementation project(path: ':module_doctor')
-
-        implementation project(path: ':module_login')
-        implementation project(path: ':module_device')
-        implementation project(path: ':module_upgrade')
     } else {
         implementation project(path: ':module_common')
     }
+
+    api Hilt.daggerRuntime
+    api Hilt.viewModule
 
 }

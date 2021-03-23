@@ -8,12 +8,8 @@ if (BuildConfig.isAppMode) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
 
 
 android {
@@ -27,14 +23,7 @@ android {
         versionName BuildConfig.versionName
         testInstrumentationRunner AndroidX.AndroidJUnitRunner
 
-//        //阿里路由框架配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
-
-
+//        multiDexEnabled true
     }
 
     compileOptions {
@@ -51,8 +40,8 @@ android {
 
 
     buildFeatures {
-        dataBinding  true
-        viewBinding  true
+        dataBinding true
+        viewBinding true
     }
 
     //根据不同的模式加载不同的AndroidManifest文件
@@ -84,20 +73,28 @@ android {
 
 }
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.name)
+    }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(path: ':module_common')
 
-    testImplementation Depend.junit
-    androidTestImplementation Depend.androidTestJunit
-    androidTestImplementation Depend.espressoCore
+    testImplementation Android.Junit
+    androidTestImplementation AndroidX.TestExtJunit
+    androidTestImplementation AndroidX.TestEspresso
 
 
+    kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
+    kapt JetPack.RoomCompiler
+    kapt Hilt.compiler
     kapt Hilt.daggerCompiler
-    kapt Room.compiler
 
 }
 

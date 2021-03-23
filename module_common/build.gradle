@@ -2,14 +2,8 @@ import com.lepucare.xphealth.build.*
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.google.protobuf'
-
 apply plugin: 'kotlin-kapt'
-kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
-}
+apply plugin: 'com.google.protobuf'
 
 
 android {
@@ -22,6 +16,24 @@ android {
         versionCode BuildConfig.versionCode
         versionName BuildConfig.versionName
         testInstrumentationRunner AndroidX.AndroidJUnitRunner
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //在编译时将数据库的架构信息导出为 JSON 文件
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
+
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//                includeCompileClasspath = true
+//            }
+//        }
+
+
     }
 
     compileOptions {
@@ -51,6 +63,11 @@ android {
     }
 
 }
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 
 dependencies {
@@ -58,21 +75,18 @@ dependencies {
 
     api project(path: ':module_base')
 
-    testImplementation Depend.junit
-    androidTestImplementation Depend.androidTestJunit
-    androidTestImplementation Depend.espressoCore
-
-
+    kapt GitHub.GlideCompiler
     kapt GitHub.ARouteCompiler
-    kapt Hilt.daggerCompiler
-    kapt Room.compiler
+    kapt JetPack.RoomCompiler
+//    kapt Hilt.compiler
+//    kapt Hilt.daggerCompiler
 }
 
 protobuf {
     // 设置 protoc 的版本
     protoc {
         // //从仓库下载 protoc 这里的版本号需要与依赖 com.google.protobuf:protobuf-javalite:xxx 版本相同
-        artifact = DataStore.ProtoBuf_Protoc
+        artifact = JetPack.ProtoBuf_Protoc
     }
     generateProtoTasks {
         all().each { task ->

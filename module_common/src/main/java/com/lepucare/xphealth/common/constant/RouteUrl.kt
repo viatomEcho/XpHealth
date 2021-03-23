@@ -13,5 +13,5 @@ object RouteUrl{
     const val MainActivity = "/module_main/MainActivity"
 
 
-//    const val MineMainActivity = "/module_mine/MainActivity"
+    const val MineMainActivity = "/module_mine/MainActivity"
 }

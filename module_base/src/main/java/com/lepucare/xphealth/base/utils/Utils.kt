@@ -11,7 +11,6 @@ import android.util.Log
 import android.widget.Toast
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jeremyliao.liveeventbus.LiveEventBus
-import com.lepucare.xphealth.base.AppHelper
 import com.lepucare.xphealth.base.BaseApplication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -63,40 +62,18 @@ private var mToast: Toast? = null
  */
 fun toastShow(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        Toast.makeText(AppHelper.mContext, text, duration).show()
+        Toast.makeText(BaseApplication.context, text, duration).show()
     } else {
         if (mToast != null) {
             mToast?.setText(text)
             mToast?.show()
         } else {
-            mToast = Toast.makeText(AppHelper.mContext, text, duration)
+            mToast = Toast.makeText(BaseApplication.context, text, duration)
             mToast?.show()
         }
     }
 }
 
-/**************************************************************************************************/
-/**
- * 判断是否连接网络
- */
-@SuppressLint("MissingPermission")
-fun isNetworkAvailable(): Boolean {
-    val connectivityManager: ConnectivityManager? =
-        AppHelper.mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    if (connectivityManager == null) {
-        return false
-    } else {
-        val allNetworkInfo: Array<NetworkInfo>? = connectivityManager.allNetworkInfo
-        if (allNetworkInfo != null && allNetworkInfo.isNotEmpty()) {
-            allNetworkInfo.forEach {
-                if (it.state == NetworkInfo.State.CONNECTED) {
-                    return true
-                }
-            }
-        }
-    }
-    return false
-}
 
 /**************************************************************************************************/
 /**
